@@ -115,9 +115,25 @@ local mt = {
   }
 }
 
--- The supported options are:
--- align: "start", "center", or "end"
--- spacing: positive integer to add space between non-spacer children
+--[[
+This arranges widgets vertically.
+
+By default there is no space between the widgets.
+To add space, specify the `spacing` option.
+
+To horizontally align the widgets, specify the `align` option
+with a value of `"start"` (default), `"center"`, or `"end"`.
+
+The parameters are:
+
+- table of options
+- child widgets as individual arguments
+
+The supported options are:
+
+- `align`: "start" (default), "center", or "end"
+- `spacing`: positive integer to add space between non-spacer children
+--]]
 local function VStack(options, ...)
   local to = type(options)
   assert(to == "table" or to == "nil", "VStack options must be a table.")

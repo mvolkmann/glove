@@ -113,9 +113,25 @@ local mt = {
   }
 }
 
--- The supported options are:
--- align: "top" (default), "center", or "bottom"
--- spacing: positive integer to add space between non-spacer children
+--[[
+This arranges widgets horizontally.
+
+By default there is no space between the widgets.
+To add space, specify the `spacing` option.
+
+To vertically align the widgets, specify the `align` option
+with a value of `"top"` (default), `"center"`, or `"bottom"`.
+
+The parameters are:
+
+- table of options
+- child widgets as individual arguments
+
+The supported options are:
+
+- `align`: "top" (default), "center", or "bottom"
+- `spacing`: positive integer to add space between non-spacer children
+--]]
 local function HStack(options, ...)
   local to = type(options)
   assert(to == "table" or to == "nil", "HStack options must be a table.")

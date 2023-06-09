@@ -193,8 +193,8 @@ end
 function love.draw()
   g.setColor(Glove.colors.white)
 
-  vstack:draw()
-  -- tabs:draw()
+  -- vstack:draw()
+  tabs:draw()
 end
 
 function love.resize()

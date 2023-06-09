@@ -409,110 +409,130 @@ inside other stack widgets.
 
 ### `HStack`
 
-  This arranges widgets horizontally.
+This arranges widgets horizontally.
 
-  By default there is no space between the widgets.
-  To add space, specify the `spacing` option.
+By default there is no space between the widgets.
+To add space, specify the `spacing` option.
 
-  To vertically align the widgets, specify the `align` option
-  with a value of `"top"` (default), `"center"`, or `"bottom"`.
+To vertically align the widgets, specify the `align` option
+with a value of `"top"` (default), `"center"`, or `"bottom"`.
 
-  For example:
+The parameters are:
 
-  ```lua
-  Glove.HStack(
-    { align = "center", spacing = 20 },
-    {
-      Glove.Text("Left"),
-      Glove.Text("Center"),
-      Glove.Text("Right")
-    }
-  )
-  ```
+- table of options
+- child widgets as individual arguments
+
+The supported options are:
+
+- `align`: "top" (default), "center", or "bottom"
+- `spacing`: positive integer to add space between non-spacer children
+
+For example:
+
+```lua
+Glove.HStack(
+  { align = "center", spacing = 20 },
+  {
+    Glove.Text("Left"),
+    Glove.Text("Center"),
+    Glove.Text("Right")
+  }
+)
+```
 
 ### `VStack`
 
-  This arranges widgets vertically.
+This arranges widgets vertically.
 
-  By default there is no space between the widgets.
-  To add space, specify the `spacing` option.
+By default there is no space between the widgets.
+To add space, specify the `spacing` option.
 
-  To horizontally align the widgets, specify the `align` option
-  with a value of `"start"` (default), `"center"`, or `"end"`.
+To horizontally align the widgets, specify the `align` option
+with a value of `"start"` (default), `"center"`, or `"end"`.
 
-  For example:
+The parameters are:
 
-  ```lua
-  Glove.VStack(
-    { align = "center", spacing = 20 },
-    {
-      Glove.Text("Top"),
-      Glove.Text("Center"),
-      Glove.Text("Bottom")
-    }
-  )
-  ```
+- table of options
+- child widgets as individual arguments
+
+The supported options are:
+
+- `align`: "start" (default), "center", or "end"
+- `spacing`: positive integer to add space between non-spacer children
+
+For example:
+
+```lua
+Glove.VStack(
+  { align = "center", spacing = 20 },
+  {
+    Glove.Text("Top"),
+    Glove.Text("Center"),
+    Glove.Text("Bottom")
+  }
+)
+```
 
 ### `ZStack`
 
-  This stacks widgets on top of each other.
+This stacks widgets on top of each other.
 
-  To control the position of each widget in the stack,
-  specify the `align` option with a compass direction or `"center"`.
-  The supported compass directions are
-  `"north"`, `"south"`, `"east"`, `"west"`, 
-  `"northeast"`, `"southeast"`, `"southwest"`, and "northwest" (default).
+To control the position of each widget in the stack,
+specify the `align` option with a compass direction or `"center"`.
+The supported compass directions are
+`"north"`, `"south"`, `"east"`, `"west"`, 
+`"northeast"`, `"southeast"`, `"southwest"`, and "northwest" (default).
 
-  For example:
+For example:
 
-  ```lua
-      Glove.ZStack(
-        { align = "center" },
-        Glove.Image("images/love2d-heart.png", { height = 200 }),
-        Glove.Text("LÖVE", {
-          color = Glove.colors.black,
-          font = Glove.fonts.default30
-        })
-      ),
-  ```
+```lua
+Glove.ZStack(
+  { align = "center" },
+  Glove.Image("images/love2d-heart.png", { height = 200 }),
+  Glove.Text("LÖVE", {
+    color = Glove.colors.black,
+    font = Glove.fonts.default30
+  })
+)
+```
 
 ### Spacer
 
-  This widget adds space inside an `HStack` or `VStack`.
+This widget adds space inside an `HStack` or `VStack`.
 
-  Adding a `Spacer` at the end of a table of child widgets
-  pushes them to the left.
+Adding a `Spacer` at the end of a table of child widgets
+pushes them to the left.
 
-  Adding a `Spacer` at the beginning of a table of child widgets
-  pushes them to the right.
+Adding a `Spacer` at the beginning of a table of child widgets
+pushes them to the right.
 
-  Adding a `Spacer` between widgets in a table of child widgets
-  pushes the ones preceding it to the left and
-  pushes the ones following it to the right.
+Adding a `Spacer` between widgets in a table of child widgets
+pushes the ones preceding it to the left and
+pushes the ones following it to the right.
 
-  Any number of `Spacer` widgets can be added to a table of widgets.
-  The amount of space consumed by each is computed by
-  dividing the unused space by the number of `Spacer` widgets.
+Any number of `Spacer` widgets can be added to a table of widgets.
+The amount of space consumed by each is computed by
+dividing the unused space by the number of `Spacer` widgets.
 
-  For example, the following code creates a row of `Text` widgets
-  that are vertically centered.
-  The space between "One" and "Two" is 20.
-  The space between "Two" and "Three" is 20.
-  The space between "Three" and "Four" is all the remaining space in the row.
-  The text "Four" is pushed to the right.
+For example, the following code creates a row of `Text` widgets
+that are vertically centered.
+The space between "One" and "Two" is 20.
+The space between "Two" and "Three" is 20.
+The space between "Three" and "Four" is all the remaining space in the row.
+The text "Four" is pushed to the right.
 
-  ```lua
-  Glove.HStack(
-    { align = "center", spacing = 20 },
-    {
-      Glove.Text("One"),
-      Glove.Text("Two", { font = Glove.fonts.default18 }),
-      Glove.Text("Three")
-      Glove.Spacer(),
-      Glove.Text("Four")
-    }
-  )
-  ```
+```lua
+Glove.HStack(
+  { align = "center", spacing = 20 },
+  {
+    Glove.Text("One"),
+    Glove.Text("Two", { font = Glove.fonts.default18 }),
+    Glove.Text("Three")
+    Glove.Spacer(),
+    Glove.Text("Four")
+  }
+)
+```
 
 ## Functional functions
 
