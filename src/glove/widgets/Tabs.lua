@@ -88,8 +88,8 @@ local mt = {
       return self.font:getHeight()
     end,
 
-    getWidth = function()
-      return g.getWidth - Glove.margin * 2
+    getWidth = function(self)
+      return self.width or Glove.getAvailableWidth()
     end,
 
     handleClick = function(self, clickX, clickY)

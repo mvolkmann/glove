@@ -1,7 +1,4 @@
 local fun = require "glove/fun"
-local love = require "love"
-
-local g = love.graphics
 
 local function layout(self)
   local align = self.align or "start"
@@ -14,9 +11,7 @@ local function layout(self)
   -- Get width of widest child.
   self.maxWidth = fun.max(
     children,
-    function(child)
-      return child:getWidth() or 0
-    end
+    function(child) return child:getWidth() or 0 end
   )
 
   -- Count spacers with no size.
@@ -46,7 +41,7 @@ local function layout(self)
     -- Account for requested gaps between children.
     childrenHeight = childrenHeight + spacing * gapCount
 
-    local availableHeight = g.getHeight() - Glove.margin * 2
+    local availableHeight = self:getHeight()
 
     -- Compute the size of each zero width Spacer.
     spacerWidth = (availableHeight - childrenHeight) / spacerCount
@@ -75,13 +70,10 @@ local function layout(self)
       y = child.y + child:getHeight()
     end
   end
-
-  self.laidOut = true
 end
 
 local mt = {
   __index = {
-    laidOut = false,
     draw = function(self, parentX, parentY)
       parentX = parentX or Glove.margin
       parentY = parentY or Glove.margin
@@ -98,10 +90,10 @@ local mt = {
     end,
 
     getHeight = function(self)
+      if self.height then return self.height end
+
       -- If there is a Spacer child then use screen height.
-      if self.haveSpacer then
-        return g.getHeight() - Glove.margin * 2
-      end
+      if self.haveSpacer then return Glove.getAvailableHeight() end
 
       -- Compute height based on children.
       local children = self.children
@@ -140,11 +132,13 @@ local function VStack(options, ...)
 
   local instance = options
   instance.kind = "VStack"
+  instance.maxWidth = 0 -- computed in layout method
   local children = { ... }
   instance.children = children
   instance.haveSpacer = fun.some(children, isSpacerWithoutSize)
   instance.x = 0
   instance.y = 0
+
   setmetatable(instance, mt)
   layout(instance)
   return instance

@@ -61,12 +61,10 @@ local function layout(self)
 
   self.width = maxWidth
   self.height = maxHeight
-  self.laidOut = true
 end
 
 local mt = {
   __index = {
-    laidOut = false,
     draw = function(self, parentX, parentY)
       parentX = parentX or Glove.margin
       parentY = parentY or Glove.margin

@@ -1,7 +1,9 @@
+local love = require "love"
 local colors = require "glove/colors"
 require "glove/string-extensions"
 
 local focusedWidget = nil
+local g = love.graphics
 
 local utilities = { "colors", "fonts", "fun" }
 
@@ -24,6 +26,14 @@ local widgets = {
 
 Glove = {
   clickables = {},
+
+  getAvailableHeight = function()
+    return g.getHeight() - Glove.margin * 2
+  end,
+
+  getAvailableWidth = function()
+    return g.getWidth() - Glove.margin * 2
+  end,
 
   hoverColor = colors.green,
 
