@@ -1,5 +1,4 @@
 local colors = require "glove/colors"
-require "glove/pprint"
 require "glove/string-extensions"
 
 local focusedWidget = nil
@@ -49,13 +48,16 @@ Glove = {
   end
 }
 
-
 for _, module in ipairs(utilities) do
   Glove[module] = require("glove/" .. module)
 end
 
 for _, module in ipairs(widgets) do
   Glove[module] = require("glove/widgets/" .. module)
+end
+
+function love.mousepressed(x, y, button)
+  Glove.mousePressed(x, y, button)
 end
 
 return Glove

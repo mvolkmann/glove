@@ -1,5 +1,5 @@
 local love = require "love"
-require "glove/index"
+require "glove"
 local fonts = Glove.fonts
 
 -- local g = love.graphics
@@ -84,16 +84,6 @@ function love.draw()
   vstack:draw()
 end
 
--- TODO: Can this be done in Input.lua?
-function love.keypressed(key)
-  inputProcessKey(key)
-end
-
-function love.mousepressed(x, y, button)
-  Glove.mousePressed(x, y, button)
-end
-
 function love.resize()
-  vstack.computed = false
   createUI()
 end

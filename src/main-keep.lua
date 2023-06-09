@@ -1,5 +1,5 @@
 local love = require "love"
-require "glove/index"
+require "glove"
 local fonts = Glove.fonts
 local pprint = require "glove/pprint"
 
@@ -191,22 +191,10 @@ function love.update(dt)
 end
 
 function love.draw()
-  --[[ g.setColor(Glove.colors.red)
-  g.setFont(fonts.default30)
-  g.print("Hello, World!", 0, 0) ]]
   g.setColor(Glove.colors.white)
 
   vstack:draw()
   -- tabs:draw()
-end
-
--- TODO: Can this be done in Input.lua?
-function love.keypressed(key)
-  inputProcessKey(key)
-end
-
-function love.mousepressed(x, y, button)
-  Glove.mousePressed(x, y, button)
 end
 
 function love.resize()

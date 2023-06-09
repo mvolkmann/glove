@@ -154,8 +154,7 @@ local function Input(t, key, options)
   return instance
 end
 
-function inputProcessKey(keyPressed)
-  -- These global variables are set in Input.lua.
+function love.keypressed(keyPressed)
   local t = inputTable
   local key = inputKey
   local c = inputCursor
