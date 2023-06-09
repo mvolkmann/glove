@@ -1,19 +1,18 @@
 local love = require "love"
 require "glove"
+local colors = Glove.colors
 local fonts = Glove.fonts
 
--- local g = love.graphics
-
-local state = { firstName = "Mark", lastName = "Volkmann" }
+local state = { firstName = "Mark", hungry = false, lastName = "Volkmann" }
 local vstack
 
 local function createUI()
   vstack = Glove.VStack(
     { spacing = 20 },
     Glove.Button("Press Me", {
-      buttonColor = Glove.colors.red,
+      buttonColor = colors.red,
       font = fonts.default18,
-      labelColor = Glove.colors.yellow,
+      labelColor = colors.yellow,
       onClick = function()
         print("got click")
       end
@@ -56,8 +55,8 @@ local function createUI()
       }
     ),
     Glove.Text("Hello, World!", {
-      color = Glove.colors.red,
-      font = Glove.fonts.default18
+      color = colors.red,
+      font = fonts.default18
     }),
     Glove.Text("", {
       compute = function()
