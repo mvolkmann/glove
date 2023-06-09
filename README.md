@@ -1,6 +1,6 @@
 # Glove
 
-Glove is a widget library for LÖVE (love2d)
+Glove is a widget library for [LÖVE](https://love2d.org/) (love2d)
 which is a framework for building 2D games in Lua.
 
 To run the demo, enter `love src`.
