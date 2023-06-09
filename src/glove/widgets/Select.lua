@@ -44,9 +44,19 @@ local mt = {
         triangleX + triangleSize, triangleTop,
         triangleX + triangleSize / 2, triangleBottom
       )
+    end,
 
+    -- This is needed in order to draw an opened select
+    -- on top of widgets below it.
+    drawLater = function(self, parentX, parentY)
       if Glove.isFocused(self) and self.open then
+        local x = parentX + self.x
+        local y = parentY + self.y
+        local fontHeight = self.font:getHeight()
         local dy = fontHeight + padding * 2
+        local width = self:getWidth()
+        local height = self:getHeight()
+
         for _, choice in ipairs(self.choices) do
           y = y + dy
           g.setColor(colors.white)

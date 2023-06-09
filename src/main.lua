@@ -1,6 +1,6 @@
 local love = require "love"
 require "glove/index"
--- local fonts = Glove.fonts
+local fonts = Glove.fonts
 
 -- local g = love.graphics
 
@@ -12,7 +12,7 @@ function createUI()
     { spacing = 20 },
     Glove.Button("Press Me", {
       buttonColor = Glove.colors.red,
-      font = Glove.fonts.default18,
+      font = fonts.default18,
       labelColor = Glove.colors.yellow,
       onClick = function()
         print("got click")
@@ -23,7 +23,7 @@ function createUI()
         print(key .. " is now " .. tostring(value))
       end
     }),
-    Glove.FPS({ font = Glove.fonts.default12 }),
+    Glove.FPS({ font = fonts.default12 }),
     Glove.Image("images/love2d-heart.png", { height = 100 }),
     Glove.Input(state, "firstName", { width = 100 }),
     Glove.RadioButtons(

@@ -85,9 +85,15 @@ local mt = {
       parentY = parentY or Glove.margin
       local x = parentX + self.x
       local y = parentY + self.y
-      for i, child in ipairs(self.children) do
+      for _, child in ipairs(self.children) do
         if child.kind ~= "Spacer" then
           child:draw(x, y)
+        end
+      end
+
+      for _, child in ipairs(self.children) do
+        if child.drawLater then
+          child:drawLater(x, y)
         end
       end
     end,

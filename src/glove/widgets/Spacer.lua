@@ -4,6 +4,9 @@ end
 
 local mt = {
   __index = {
+    draw = function(self, parentX, parentY)
+      -- do nothing
+    end,
     getHeight = function(self) return 0 end,
     getWidth = function(self) return 0 end
   }
