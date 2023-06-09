@@ -339,18 +339,20 @@ Glove.Tabs(
 
 ### `Text`
 
-This widget displays static or computed text.
+This widget displays static text, computed text,
+or the value of a given key in a given table.
 
 The parameters are:
 
-- the text to display
+- text to display or a function that returns it
 - table of options
 
 The supported options are:
 
-- `font`: used for the text
 - `color`: of the text; defaults to white
-- `compute`: optional function called to compute the text to display
+- `font`: used for the text
+- `table`: a table that holds the text to display
+- `key`: a key within the table that holds the text to display
 - `width`: used when key and table are specified
 
 For example:
@@ -365,11 +367,13 @@ Glove.Text("Hello, World!", {
 
 local state = { firstName = "Mark", lastName = "Volkmann" }
 
-Glove.Text("", {
-  compute = function()
+Glove.Text(
+  function()
     return "Hello, " .. state.firstName .. " " .. state.lastName .. "!"
   end
-})
+)
+
+Glove.Text("", { table = state, key = "firstName" }),
 ```
 
 ### `Toggle`

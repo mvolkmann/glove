@@ -14,17 +14,11 @@ local mt = {
         parentX = parentX or 0
         parentY = parentY or 0
 
-        local v = ""
-        local compute = self.compute
-        if compute then
-          v = compute()
-        else
-          local t = self.table
-          local key = self.key
-          v = t and key and t[key] or self.text
-        end
-
-        g.print(v, parentX + self.x + padding, parentY + self.y + padding)
+        g.print(
+          self:getText(),
+          parentX + self.x + padding,
+          parentY + self.y + padding
+        )
 
         if self.debug then
           g.setColor(colors.red)
@@ -41,17 +35,23 @@ local mt = {
       return self.font:getHeight() + padding * 2
     end,
 
-    getWidth = function(self)
-      if self.width then return self.width end
-
-      local value = ""
-      if compute then
-        value = compute()
+    getText = function(self)
+      local text = self.text
+      local value
+      if type(text) == "function" then
+        value = text()
       else
         local t = self.table
         local key = self.key
         value = t and key and t[key] or self.text
       end
+      return value
+    end,
+
+    getWidth = function(self)
+      if self.width then return self.width end
+
+      local value = self:getText()
       return self.font:getWidth(value) + padding * 2
     end
   }
@@ -62,14 +62,15 @@ This widget displays static or computed text.
 
 The parameters are:
 
-- the text to display
+- text to display or a function that returns it
 - table of options
 
 The supported options are:
 
-- `font`: used for the text
 - `color`: of the text; defaults to white
-- `compute`: optional function called to compute the text to display
+- `font`: used for the text
+- `table`: a table that holds the text to display
+- `key`: a key within the table that holds the text to display
 - `width`: used when key and table are specified
 --]]
 local function Text(text, options)
@@ -77,7 +78,7 @@ local function Text(text, options)
   assert(to == "table" or to == "nil", "Text options must be a table.")
 
   if not text then
-    error("Text requires text to display")
+    error("Text requires text to display or a function")
   end
 
   local instance = options or {}
