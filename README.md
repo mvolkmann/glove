@@ -444,6 +444,54 @@ Glove.HStack(
 )
 ```
 
+By default `HStack` widgets assume they can use the entire width of the window.
+This works well for top-level instances.
+Nested instances should be given a specific width.
+For example, the following code can be in `main.lua`:
+
+```lua
+local love = require "love"
+require "glove"
+
+local container
+
+local function createUI()
+  local spacing = 20
+  local half = (Glove.getAvailableWidth() - spacing) / 2
+  container = Glove.HStack(
+    { spacing = spacing },
+    Glove.HStack(
+      { width = half },
+      Glove.Text("One"),
+      Glove.Spacer(),
+      Glove.Text("Two")
+    ),
+    Glove.HStack(
+      { width = half },
+      Glove.Text("Three"),
+      Glove.Spacer(),
+      Glove.Text("Four")
+    )
+  )
+end
+
+function love.load()
+  createUI()
+end
+
+function love.update(dt)
+  -- Currently nothing is needed here.
+end
+
+function love.draw()
+  container:draw()
+end
+
+function love.resize()
+  createUI()
+end
+```
+
 ### `VStack`
 
 This arranges widgets vertically.
@@ -477,6 +525,53 @@ Glove.VStack(
 )
 ```
 
+By default `VStack` widgets assume they can use the entire height of the window.
+This works well for top-level instances.
+Nested instances should be given a specific height.
+For example, the following code can be in `main.lua`:
+
+```lua
+local love = require "love"
+require "glove"
+
+local container
+
+local function createUI()
+  local spacing = 20
+  local half = (Glove.getAvailableWidth() - spacing) / 2
+  container = Glove.HStack(
+    { spacing = spacing },
+    Glove.HStack(
+      { width = half },
+      Glove.Text("One"),
+      Glove.Spacer(),
+      Glove.Text("Two")
+    ),
+    Glove.HStack(
+      { width = half },
+      Glove.Text("Three"),
+      Glove.Spacer(),
+      Glove.Text("Four")
+    )
+  )
+end
+
+function love.load()
+  createUI()
+end
+
+function love.update(dt)
+  -- Currently nothing is needed here.
+end
+
+function love.draw()
+  container:draw()
+end
+
+function love.resize()
+  createUI()
+end
+```
 ### `ZStack`
 
 This stacks widgets on top of each other.

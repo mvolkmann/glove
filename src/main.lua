@@ -4,43 +4,42 @@ require "glove"
 local container
 
 local function createUI()
-  local available = Glove.getAvailableWidth()
+  --[[ local spacing = 20
+  local half = (Glove.getAvailableWidth() - spacing) / 2
   container = Glove.HStack(
-    { id = 1, spacing = 10 },
-
+    { spacing = spacing },
     Glove.HStack(
-      { id = 2, spacing = 10, width = available / 2 },
+      { width = half },
       Glove.Text("One"),
       Glove.Spacer(),
       Glove.Text("Two")
     ),
-
     Glove.HStack(
-      { id = 3, spacing = 10, width = available / 2 },
-      Glove.Text("Three"),
-      Glove.Spacer(),
-      Glove.Text("Four")
-    )
-  )
-
-  --[[ local available = Glove.getAvailableHeight()
-  container = Glove.VStack(
-    { id = 1, spacing = 10 },
-
-    Glove.VStack(
-      { id = 2, spacing = 10, height = available / 2 },
-      Glove.Text("One"),
-      Glove.Spacer(),
-      Glove.Text("Two")
-    ),
-
-    Glove.VStack(
-      { id = 3, spacing = 10, height = available / 2 },
+      { width = half },
       Glove.Text("Three"),
       Glove.Spacer(),
       Glove.Text("Four")
     )
   ) ]]
+  local spacing = 20
+  local half = (Glove.getAvailableHeight() - spacing) / 2
+  container = Glove.VStack(
+    { spacing = spacing },
+
+    Glove.VStack(
+      { height = half },
+      Glove.Text("One"),
+      Glove.Spacer(),
+      Glove.Text("Two")
+    ),
+
+    Glove.VStack(
+      { height = half },
+      Glove.Text("Three"),
+      Glove.Spacer(),
+      Glove.Text("Four")
+    )
+  )
 end
 
 function love.load()
