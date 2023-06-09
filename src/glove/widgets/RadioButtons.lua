@@ -181,7 +181,7 @@ local function RadioButtons(choices, t, key, options)
   end
 
   instance.width = width
-  instance.height = size
+  instance.height = height
 
   setmetatable(instance, mt)
 

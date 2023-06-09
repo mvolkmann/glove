@@ -40,7 +40,7 @@ local mt = {
           if substrWidth <= limit then break end
           i = i + 1
         end
-        local truncated = i > 1
+        -- local truncated = i > 1
 
         x = x + padding
         y = y + padding

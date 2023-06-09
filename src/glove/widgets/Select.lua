@@ -5,7 +5,7 @@ local love = require "love"
 local g = love.graphics
 
 local defaultValue = "Select ..."
-local padding = 2
+local padding = 4
 
 local mt = {
   __index = {
