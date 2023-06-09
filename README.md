@@ -380,8 +380,11 @@ The following widgets are currently supported:
 
 ## Layout Widgets
 
-Layout is heavily based on ideas from SwiftUI.
-The following widgets are used to layout the graphical widgets.
+Layout is heavily based on ideas from SwiftUI and
+borrows the names `HStack`, `VStack`, `ZStack`, and `Spacer`.
+The "stack" widgets each hold child widgets.
+Complex layouts can be defined by nesting stack widgets
+inside other stack widgets.
 
 ### `HStack`
 
@@ -478,11 +481,14 @@ The following widgets are used to layout the graphical widgets.
 ## Functional functions
 
 Glove defines the many functional programming functions.
+The predefined widgets use them and your code can too.
 To use them, add the following near the top of a source file:
 
 ```lua
 local fun = require "glove/fun"
 ```
+
+The functions provided are:
 
 - `fun.count(t, predicate)`
 
