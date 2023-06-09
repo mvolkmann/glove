@@ -23,20 +23,23 @@ local mt = {
         return choice.value == selectedValue
       end)
 
+      -- Draw the border.
       local over = self:isOver(0, love.mouse.getPosition())
       g.setColor(over and Glove.hoverColor or self.color)
       local width = self:getWidth()
       local height = self:getHeight()
       g.rectangle("line", x, y, width, height)
 
+      -- Draw the currently selected value.
       g.setColor(self.color)
       local value = selectedChoice and selectedChoice.label or "Select ..."
       g.print(value, x + padding, y + padding)
 
+      -- Draw the downward triangle.
       local fontHeight = font:getHeight()
       local triangleSize = fontHeight - 8
       local triangleX = x + width - 6 - triangleSize
-      local triangleTop = y + 6
+      local triangleTop = y + 8
       local triangleBottom = triangleTop + triangleSize
       g.polygon(
         "fill",
