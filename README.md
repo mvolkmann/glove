@@ -148,8 +148,9 @@ by pressing the delete key.
 
 The text is tied to value of a given key in a given table.
 
-Current the cursor cannot be positioned by clicking
-and the entered text cannot be selected.
+Currently the cursor cannot be positioned by clicking,
+entered text cannot be selected, and
+the tab key cannot be used to move focus to another widget.
 
 The parameters are:
 

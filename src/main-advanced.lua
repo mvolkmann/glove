@@ -41,11 +41,11 @@ local function createUI()
   local firstNameInput = Glove.Input(state, "firstName", { width = 100 })
   local lastNameInput = Glove.Input(state, "lastName", { width = 100 })
 
-  local greetingText = Glove.Text("", {
-    compute = function()
+  local greetingText = Glove.Text(
+    function()
       return "Hello, " .. state.firstName .. " " .. state.lastName .. "!"
     end
-  })
+  )
 
   local radioButtons = Glove.RadioButtons(
     {
@@ -198,6 +198,5 @@ function love.draw()
 end
 
 function love.resize()
-  vstack.computed = false
   createUI()
 end
