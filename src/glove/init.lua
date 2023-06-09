@@ -59,5 +59,3 @@ end
 function love.mousepressed(x, y, button)
   Glove.mousePressed(x, y, button)
 end
-
-return Glove
