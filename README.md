@@ -265,7 +265,6 @@ The following widgets are currently supported:
     state,
     "color",
     {
-      font = fonts.default18,
       onChange = function(t, key, value)
         print(key .. " is now " .. value)
       end,
@@ -276,9 +275,42 @@ The following widgets are currently supported:
 
 - `Select`
 
+  This widget displays a dropdown list of options
+  and allows the user to select one.
+
+  The selected value is tied to value of a given key in a given table.
+
+  The parameters are:
+
+  - choices described by an array-like table containing
+    tables with `label` and `value` keys
+  - table that holds its state
+  - key within the table that holds its state
+  - table of options
+
+  The supported options are:
+
+  - `color`: of the labels; defaults to white
+  - `font`: used for the labels
+  - `onChange`: optional function to be called when a choice is selected
+
   For example:
 
   ```lua
+  Glove.Select(
+    {
+      { label = "Red",   value = "r" },
+      { label = "Green", value = "g" },
+      { label = "Blue",  value = "b" }
+    },
+    state,
+    "color",
+    {
+      onChange = function(t, key, value)
+        print(key .. " is now " .. value)
+      end
+    }
+  )
   ```
 
 - `Tabs`

@@ -56,9 +56,8 @@ function createUI()
     state,
     "color",
     {
-      -- font = fonts.default30,
       onChange = function(t, key, value)
-        print("got change to " .. key, value, t[key])
+        print(key .. " is now " .. value)
       end,
       vertical = true
     }
@@ -73,11 +72,9 @@ function createUI()
     state,
     "color",
     {
-      -- font = fonts.default30,
       onChange = function(t, key, value)
-        print("got change to " .. key, value, t[key])
-      end,
-      vertical = true
+        print(key .. " is now " .. value)
+      end
     }
   )
 
