@@ -224,14 +224,54 @@ The following widgets are currently supported:
   For example:
 
   ```lua
+  local state = { firstName = "" }
+
   Glove.Input(state, "firstName", { width = 100 })
   ```
 
 - `RadioButtons`
 
+  This widget allows the user to select one radiobutton from a set.
+
+  The selected value is tied to value of a given key in a given table.
+
+  The parameters are:
+
+  - choices described by an array-like table containing
+    tables with `label` and `value` keys
+  - table that holds its state
+  - key within the table that holds its state
+  - table of options
+
+  The supported options are:
+
+  - `color`: of the radiobuttons and their labels; defaults to white
+  - `font`: used for the labels
+  - `onChange`: optional function to be called when a choice is selected
+  - `vertical`: boolean indicating whether the radiobuttons
+    should be arranged vertically; defaults to false
+
   For example:
 
   ```lua
+  local state = { color = "r" }
+
+  Glove.RadioButtons(
+    {
+      { label = "Red",   value = "r" },
+      { label = "Green", value = "g" },
+      { label = "Blue",  value = "b" }
+    },
+    state,
+    "color",
+    {
+      font = fonts.default18,
+      onChange = function(t, key, value)
+        print(key .. " is now " .. value)
+      end,
+      vertical = true
+    }
+  )
   ```
 
 - `Select`

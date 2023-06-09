@@ -87,7 +87,7 @@ local mt = {
             local t = self.table
             local key = self.key
             t[key] = value
-            self.onChange(t, key, value)
+            if self.onChange then self.onChange(t, key, value) end
             return true -- captured click
           end
           y = y + size + spacing
@@ -102,7 +102,7 @@ local mt = {
             local t = self.table
             local key = self.key
             t[key] = value
-            self.onChange(t, key, value)
+            if self.onChange then self.onChange(t, key, value) end
             return true -- captured click
           end
           x = x + size + spacing
@@ -122,15 +122,27 @@ local mt = {
   }
 }
 
--- choices is an array-like table containing
--- tables with label and value keys.
--- t[key] is set to the value of the selected choice.
---
--- Supported options are:
--- color: defaults to white
--- font: font used for choice labels
--- onChange: function called when a choice is selected
--- vertical: boolean; defaults to false
+--[[
+  This widget allows the user to select one radiobutton from a set.
+
+  The selected value is tied to value of a given key in a given table.
+
+  The parameters are:
+
+  - choices described by an array-like table containing
+    tables with `label` and `value` keys
+  - table that holds its state
+  - key within the table that holds its state
+  - table of options
+
+  The supported options are:
+
+  - `color`: of the radiobuttons and their labels; defaults to white
+  - `font`: used for the labels
+  - `onChange`: optional function to be called when a choice is selected
+  - `vertical`: boolean indicating whether the radiobuttons
+    should be arranged vertically; defaults to false
+--]]
 local function RadioButtons(choices, t, key, options)
   assert(type(choices) == "table", "RadioButtons choices must be a table.")
 
