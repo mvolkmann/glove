@@ -87,9 +87,22 @@ local mt = {
   }
 }
 
--- The supported options are:
--- align: "center" or one of the compass directions "northwest", "north",
---        "northeast", "east", "southeast", "south", "southwest", or "west"
+--[[
+This stacks widgets on top of each other.
+
+To control the position of each widget in the stack,
+specify the `align` option with a compass direction or `"center"`.
+
+The parameters are:
+
+- table of options
+
+The supported options are:
+
+- align: "center" or one of the following compass directions:
+  "north", "south", "east", "west",
+  "northeast", "southeast", "southwest", or "northwest" (default)
+--]]
 local function ZStack(options, ...)
   local to = type(options)
   assert(to == "table" or to == "nil", "ZStack options must be a table.")

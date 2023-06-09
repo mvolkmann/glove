@@ -483,9 +483,16 @@ This stacks widgets on top of each other.
 
 To control the position of each widget in the stack,
 specify the `align` option with a compass direction or `"center"`.
-The supported compass directions are
-`"north"`, `"south"`, `"east"`, `"west"`, 
-`"northeast"`, `"southeast"`, `"southwest"`, and "northwest" (default).
+
+The parameters are:
+
+- table of options
+
+The supported options are:
+
+- align: "center" or one of the following compass directions:
+  "north", "south", "east", "west",
+  "northeast", "southeast", "southwest", or "northwest" (default)
 
 For example:
 
