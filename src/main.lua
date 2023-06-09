@@ -38,18 +38,8 @@ function createUI()
     end
   })
 
-  local firstNameInput = Glove.Input(state, "firstName", {
-    onChange = function(t, key, value)
-      print("got change to " .. key, value, t[key])
-    end,
-    width = 100
-  })
-  local lastNameInput = Glove.Input(state, "lastName", {
-    onChange = function(t, key, value)
-      print("got change to " .. key, value, t[key])
-    end,
-    width = 100
-  })
+  local firstNameInput = Glove.Input(state, "firstName", { width = 100 })
+  local lastNameInput = Glove.Input(state, "lastName", { width = 100 })
 
   local greetingText = Glove.Text("", {
     compute = function()

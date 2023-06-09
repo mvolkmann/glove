@@ -27,6 +27,18 @@ local mt = {
   }
 }
 
+--[[
+  This widget displays an image.
+
+  The parameters are:
+
+  - filePath: path to the image file
+  - table of options
+
+  The supported options are:
+
+  - `height`: of the image (aspect ratio is preserved)
+--]]
 local function Image(filePath, options)
   local to = type(options)
   assert(to == "table" or to == "nil", "Image options must be a table.")

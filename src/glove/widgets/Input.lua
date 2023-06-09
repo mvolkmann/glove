@@ -106,11 +106,31 @@ local mt = {
   }
 }
 
--- t[key] is set to the text that is entered.
--- Supported options are:
--- font: font used for button label
--- color: color of label and checkbox; defaults to white
--- onChange: function called when button is clicked
+--[[
+  This widget allows the user to enter text.
+  The text automatically scrolls horizontally
+  when it exceeds the specified width.
+  The cursor can be positioned using the left and right arrow keys.
+  The character to the left of the cursor can be deleted
+  by pressing the delete key.
+
+  The text is tied to value of a given key in a given table.
+
+  Current the cursor cannot be positioned by clicking
+  and the entered text cannot be selected.
+
+  The parameters are:
+
+  - table that holds its state
+  - key within the table that holds its state
+  - table of options
+
+  The supported options are:
+
+  - `color`: of the border and text; defaults to white
+  - `font`: used for the text
+  - `width`: of the widget
+--]]
 local function Input(t, key, options)
   local to = type(options)
   assert(to == "table" or to == "nil", "Input options must be a table.")

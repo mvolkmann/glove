@@ -106,8 +106,8 @@ The following widgets are currently supported:
 
   The parameters are:
 
-  - the text to display on the button
-  - a table of options.
+  - text to display on the button
+  - table of options
 
   The supported options are:
 
@@ -138,6 +138,7 @@ The following widgets are currently supported:
   - text to display after the checkbox
   - table that holds its state
   - key within the table that holds its state
+  - table of options
 
   The supported options are:
 
@@ -159,14 +160,34 @@ The following widgets are currently supported:
 
 - `FPS`
 
+  This widget displays the frames per second currently being achieved
+
+  The parameters are:
+
+  - table of options
+
+  The supported options are:
+
+  - `font`: used for the text
+
   For example:
 
   ```lua
+  Glove.FPS({ font = fonts.default12 })
   ```
 
 - `Image`
 
-  This displays an image.
+  This widget displays an image.
+
+  The parameters are:
+
+  - filePath: path to the image file
+  - table of options
+
+  The supported options are:
+
+  - `height`: of the image (aspect ratio is preserved)
 
   For example:
 
@@ -176,9 +197,34 @@ The following widgets are currently supported:
 
 - `Input`
 
+  This widget allows the user to enter text.
+  The text automatically scrolls horizontally
+  when it exceeds the specified width.
+  The cursor can be positioned using the left and right arrow keys.
+  The character to the left of the cursor can be deleted
+  by pressing the delete key.
+
+  The text is tied to value of a given key in a given table.
+
+  Current the cursor cannot be positioned by clicking
+  and the entered text cannot be selected.
+
+  The parameters are:
+
+  - table that holds its state
+  - key within the table that holds its state
+  - table of options
+
+  The supported options are:
+
+  - `color`: of the border and text; defaults to white
+  - `font`: used for the text
+  - `width`: of the widget
+
   For example:
 
   ```lua
+  Glove.Input(state, "firstName", { width = 100 })
   ```
 
 - `RadioButtons`

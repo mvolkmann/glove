@@ -22,7 +22,17 @@ local mt = {
   },
 }
 
--- This displays the current frames per second.
+--[[
+  This widget displays the frames per second currently being achieved
+
+  The parameters are:
+
+  - table of options
+
+  The supported options are:
+
+  - `font`: used for the text
+--]]
 local function FPS(options)
   local font = options.font or g.getFont()
   local text = "FPS:" .. love.timer.getFPS()
