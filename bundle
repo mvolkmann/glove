@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+rm -f my-gui.love
+pushd src
+zip -r ../my-gui.love *
+popd
