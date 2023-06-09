@@ -2,13 +2,99 @@
 
 Glove is a widget library for [LÖVE](https://love2d.org/) (love2d)
 which is a framework for building 2D games in Lua.
+It defines many commonly used widgets and a layout system.
 
 To run the demo, enter `love src`.
 
-To include in your project,
-copy the glove directory in it.
+To include Glove in your project,
+copy the `glove` directory found in the `src` directory into it.
 
-See src/main.lua for example code.
+For example code, see `src/main.lua`.
+
+## Colors
+
+Glove defines the following colors that can be accessed with
+`Glove.color.{color-name}`:
+
+- `black`
+- `blue`
+- `brown`
+- `gray`
+- `green`
+- `orange`
+- `purple`
+- `red`
+- `white`
+- `yellow`
+
+## Fonts
+
+Glove defines the following fonts that can be accessed with
+`Glove.font.{font-name}`:
+
+- `default12`
+- `default18`
+- `default30`
+
+## Functional functions
+
+Glove defines the following functional programming functions:
+
+- `Glove.count(t, predicate)`
+
+  Returns the number of items in a given table that match a predicate.
+
+- `Glove.every(t, predicate)`
+
+  Returns a boolean indicating whether
+  every item in a given table matches a predicate.
+
+- `Glove.filter(t, predicate)`
+
+  Returns a new table containing all items in a given table
+  that match a predicate.
+
+- `Glove.find(t, predicate)`
+
+  Returns the first item in a given table that matches a predicate.
+
+- `Glove.map(t, fn)`
+
+  Returns a new table containing the results of passing
+  each item in a given table to a given function.
+
+- `Glove.max(t, fn)`
+
+  Returns the maximum value returned by a function
+  that is passed each item in a given table.
+
+- `Glove.min(t, fn)`
+
+  Returns the minimum value returned by a function
+  that is passed each item in a given table.
+
+- `Glove.reduce(t, fn, initial)`
+
+  Returns a single value computed by accumulating the results
+  of passing each item in a given table to a given function.
+
+- `Glove.some(t, predicate)`
+
+  Returns a boolean indicating whether
+  some item in a given table matches a predicate.
+
+- `Glove.sum(t)`
+
+  Returns the sum of the numbers in a given table.
+  While this can be implemented using "reduce",
+  this is a bit more efficient.
+
+- `Glove.sumFn(t, fn)`
+
+  Returns the sum of the values returned by
+  a function that is passed each item in a given table.
+  While this can be implemented using "reduce",
+  this is a bit more efficient.
 
 ## Graphical Widgets
 
@@ -17,11 +103,19 @@ The following widgets are currently supported:
 - `Button`
 
   This is a clickable button.
+  It is passed the text to display on the button and a table of options.
+
+  The supported options are:
+
+  - `buttonColor`: background color of the button; defaults to white
+  - `font`: font used for the button label
+  - `labelColor`: color of the label; defaults to black
+  - `onClick`: function called when the button is clicked
 
   For example:
 
   ```lua
-  local button = Glove.Button("Seven", {
+  local button = Glove.Button("Press Me", {
     buttonColor = Glove.colors.red,
     font = Glove.fonts.default18,
     labelColor = Glove.colors.yellow,
