@@ -102,8 +102,12 @@ The following widgets are currently supported:
 
 - `Button`
 
-  This is a clickable button.
-  It is passed the text to display on the button and a table of options.
+  This widget is a clickable button.
+
+  The parameters are:
+
+  - the text to display on the button
+  - a table of options.
 
   The supported options are:
 
@@ -126,6 +130,20 @@ The following widgets are currently supported:
   ```
 
 - `Checkbox`
+
+  This widget ties a checkbox state to a boolean value in a table.
+
+  The parameters are:
+
+  - text to display after the checkbox
+  - table that holds its state
+  - key within the table that holds its state
+
+  The supported options are:
+
+  - `font`: used for the button label
+  - `color`: of the label and checkbox; defaults to white
+  - `onChange`: function called when the checkbox is clicked
 
   For example:
 

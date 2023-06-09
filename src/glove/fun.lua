@@ -89,7 +89,7 @@ function M.some(t, predicate)
 end
 
 -- Returns the sum of the numbers in a given table.
--- While this could be implemented using "reduce",
+-- While this can be implemented using "reduce",
 -- this is a bit more efficient.
 function M.sum(t)
   local result = 0
@@ -100,8 +100,8 @@ function M.sum(t)
 end
 
 -- Returns the sum of the values returned by
--- a function that is passed each table item.
--- While this could be implemented using "reduce",
+-- a function that is passed each item in a given table.
+-- While this can be implemented using "reduce",
 -- this is a bit more efficient.
 function M.sumFn(t, fn)
   local result = 0

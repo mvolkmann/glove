@@ -78,11 +78,21 @@ local mt = {
   }
 }
 
--- t[key] is set to true or false.
--- Supported options are:
--- font: font used for button label
--- color: color of label and checkbox; defaults to white
--- onChange: function called when button is clicked
+--[[
+  This widget ties a checkbox state to a boolean value in a table.
+
+  The parameters are:
+
+  - text to display after the checkbox
+  - table that holds its state
+  - key within the table that holds its state
+
+  The supported options are:
+
+  - `font`: used for the button label
+  - `color`: of the label and checkbox; defaults to white
+  - `onChange`: function called when the checkbox is clicked
+--]]
 local function Checkbox(label, t, key, options)
   options = options or {}
   assert(type(options) == "table", "Checkbox options must be a table.")

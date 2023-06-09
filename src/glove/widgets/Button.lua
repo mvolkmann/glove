@@ -67,11 +67,21 @@ local mt = {
   }
 }
 
--- Supported options are:
--- buttonColor: background color of button; defaults to white
--- font: font used for button label
--- labelColor: color of label; defaults to black
--- onClick: function called when button is clicked
+--[[
+  This widget is a clickable button.
+
+  The parameters are:
+
+  - the text to display on the button
+  - a table of options.
+
+  The supported options are:
+
+  - `buttonColor`: background color of the button; defaults to white
+  - `font`: font used for the button label
+  - `labelColor`: color of the label; defaults to black
+  - `onClick`: function called when the button is clicked
+--]]
 local function Button(label, options)
   options = options or {}
   assert(type(options) == "table", "Button options must be a table.")
