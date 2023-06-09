@@ -7,7 +7,7 @@ local fonts = Glove.fonts
 local state = { firstName = "Mark", lastName = "Volkmann" }
 local vstack
 
-function createUI()
+local function createUI()
   vstack = Glove.VStack(
     { spacing = 20 },
     Glove.Button("Press Me", {

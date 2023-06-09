@@ -93,9 +93,7 @@ local mt = {
       end
 
       for _, child in ipairs(self.children) do
-        if child.drawLater then
-          child:drawLater(x, y)
-        end
+        if child.drawLater then child:drawLater(x, y) end
       end
     end,
 

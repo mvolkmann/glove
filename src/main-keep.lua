@@ -13,7 +13,7 @@ local state = { firstName = "Mark", lastName = "Volkmann" }
 
 pprint.setup { show_all = true, wrap_array = true }
 
-function createUI()
+local function createUI()
   local debug = true
   local logo1 = Glove.Image("images/love2d-heart.png", { height = 200 })
   local logo2 = Glove.Image("images/love2d-whale.png", { height = 100 })
