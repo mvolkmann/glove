@@ -315,9 +315,69 @@ The following widgets are currently supported:
 
 - `Tabs`
 
+  This widget displays a row of tabs where only one can be selected at a time.
+  Each tab is associated with a single widget which is
+  typically an `HStack`, `VStack`, or `ZStack`.
+  The widget associated with the selected tab is displayed below the tabs.
+
+  The parameters are:
+
+  - tabs described by an array-like table containing
+    tables with `label` and `widget` keys
+  - table of options
+
+  The supported options are:
+
+  - `color`: of the labels; defaults to white
+  - `font`: used for the labels
+  - `onChange`: optional function to be called when a tab is selected;
+     passed the tab index and the table describing the tab
+
   For example:
 
   ```lua
+  Glove.Tabs(
+    {
+      {
+        label = "Baseball",
+        widget = Glove.VStack(
+          { spacing = 10 },
+          Glove.Text("There's no crying in baseball!", { font = tabFont }),
+          Glove.HStack(
+            { align = "center", spacing = 10 },
+            Glove.Text("Like baseball?"),
+            Glove.Toggle(state, "likeBaseball")
+          )
+        )
+      },
+      {
+        label = "Basketball",
+        widget = Glove.VStack(
+          { spacing = 10 },
+          Glove.Text("Nuggets Rule!"),
+          Glove.HStack(
+            { align = "center", spacing = 10 },
+            Glove.Text("Like basketball?"),
+            Glove.Toggle(state, "likeBasketball")
+          )
+        )
+      },
+      {
+        label = "Football",
+        widget = Glove.Text("Football detail goes here!")
+      },
+      {
+        label = "Hockey",
+        widget = Glove.Text("Hockey detail goes here!")
+      }
+    },
+    {
+      font = fonts.default18,
+      onChange = function(index, tab)
+        print("selected tab " .. tab.label .. " at index " .. index)
+      end,
+    }
+  )
   ```
 
 - `Text`
