@@ -9,7 +9,7 @@ To run the demo, enter `love src`.
 To include Glove in your project,
 copy the `glove` directory found in the `src` directory into it.
 
-For example code, see `src/main.lua`.
+For example code, see the `main*.lua` files in the `src` directory.
 
 ## Colors
 
