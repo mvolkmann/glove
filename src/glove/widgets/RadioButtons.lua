@@ -123,25 +123,25 @@ local mt = {
 }
 
 --[[
-  This widget allows the user to select one radiobutton from a set.
+This widget allows the user to select one radiobutton from a set.
 
-  The selected value is tied to value of a given key in a given table.
+The selected value is tied to value of a given key in a given table.
 
-  The parameters are:
+The parameters are:
 
-  - choices described by an array-like table containing
-    tables with `label` and `value` keys
-  - table that holds its state
-  - key within the table that holds its state
-  - table of options
+- choices described by an array-like table containing
+  tables with `label` and `value` keys
+- table that holds its state
+- key within the table that holds its state
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `color`: of the radiobuttons and their labels; defaults to white
-  - `font`: used for the labels
-  - `onChange`: optional function to be called when a choice is selected
-  - `vertical`: boolean indicating whether the radiobuttons
-    should be arranged vertically; defaults to false
+- `color`: of the radiobuttons and their labels; defaults to white
+- `font`: used for the labels
+- `onChange`: optional function to be called when a choice is selected
+- `vertical`: boolean indicating whether the radiobuttons
+  should be arranged vertically; defaults to false
 --]]
 local function RadioButtons(choices, t, key, options)
   assert(type(choices) == "table", "RadioButtons choices must be a table.")

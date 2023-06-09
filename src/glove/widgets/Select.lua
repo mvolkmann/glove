@@ -127,24 +127,24 @@ local mt = {
 }
 
 --[[
-  This widget displays a dropdown list of options
-  and allows the user to select one.
+This widget displays a dropdown list of options
+and allows the user to select one.
 
-  The selected value is tied to value of a given key in a given table.
+The selected value is tied to value of a given key in a given table.
 
-  The parameters are:
+The parameters are:
 
-  - choices described by an array-like table containing
-    tables with `label` and `value` keys
-  - table that holds its state
-  - key within the table that holds its state
-  - table of options
+- choices described by an array-like table containing
+  tables with `label` and `value` keys
+- table that holds its state
+- key within the table that holds its state
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `color`: of the labels; defaults to white
-  - `font`: used for the labels
-  - `onChange`: optional function to be called when a choice is selected
+- `color`: of the labels; defaults to white
+- `font`: used for the labels
+- `onChange`: optional function to be called when a choice is selected
 --]]
 local function Select(choices, t, key, options)
   assert(type(choices) == "table", "Select choices must be a table.")

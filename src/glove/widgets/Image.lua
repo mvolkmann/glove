@@ -28,16 +28,16 @@ local mt = {
 }
 
 --[[
-  This widget displays an image.
+This widget displays an image.
 
-  The parameters are:
+The parameters are:
 
-  - filePath: path to the image file
-  - table of options
+- filePath: path to the image file
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `height`: of the image (aspect ratio is preserved)
+- `height`: of the image (aspect ratio is preserved)
 --]]
 local function Image(filePath, options)
   local to = type(options)

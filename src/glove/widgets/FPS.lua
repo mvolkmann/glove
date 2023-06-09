@@ -23,15 +23,15 @@ local mt = {
 }
 
 --[[
-  This widget displays the frames per second currently being achieved
+This widget displays the frames per second currently being achieved
 
-  The parameters are:
+The parameters are:
 
-  - table of options
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `font`: used for the text
+- `font`: used for the text
 --]]
 local function FPS(options)
   local font = options.font or g.getFont()

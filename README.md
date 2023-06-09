@@ -275,8 +275,6 @@ Each tab is associated with a single widget which is
 typically an `HStack`, `VStack`, or `ZStack`.
 The widget associated with the selected tab is displayed below the tabs.
 
-![Glove Button](/images/glove-button.png)
-
 The parameters are:
 
 - tabs described by an array-like table containing
@@ -291,6 +289,8 @@ The supported options are:
    passed the tab index and the table describing the tab
 
 For example:
+
+![Glove Tabs](/images/glove-tabs.png)
 
 ```lua
 Glove.Tabs(

@@ -64,18 +64,18 @@ local mt = {
 }
 
 --[[
-  This widget ties a toggle state to a boolean value in a table.
+This widget ties a toggle state to a boolean value in a table.
 
-  The parameters are:
+The parameters are:
 
-  - table that holds its state
-  - key within the table that holds its state
-  - table of options
+- table that holds its state
+- key within the table that holds its state
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `color`: of the toggle; defaults to white
-  - `onChange`: optional function called when the checkbox is clicked
+- `color`: of the toggle; defaults to white
+- `onChange`: optional function called when the checkbox is clicked
 --]]
 local function Toggle(t, key, options)
   options = options or {}

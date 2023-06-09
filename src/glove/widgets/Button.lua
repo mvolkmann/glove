@@ -68,19 +68,19 @@ local mt = {
 }
 
 --[[
-  This widget is a clickable button.
+This widget is a clickable button.
 
-  The parameters are:
+The parameters are:
 
-  - text to display on the button
-  - table of options
+- text to display on the button
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `buttonColor`: background color of the button; defaults to white
-  - `font`: font used for the button label
-  - `labelColor`: color of the label; defaults to black
-  - `onClick`: function called when the button is clicked
+- `buttonColor`: background color of the button; defaults to white
+- `font`: font used for the button label
+- `labelColor`: color of the label; defaults to black
+- `onClick`: function called when the button is clicked
 --]]
 local function Button(label, options)
   options = options or {}

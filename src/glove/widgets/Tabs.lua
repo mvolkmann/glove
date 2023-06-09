@@ -136,23 +136,23 @@ local mt = {
 }
 
 --[[
-  This widget displays a row of tabs where only one can be selected at a time.
-  Each tab is associated with a single widget which is
-  typically an `HStack`, `VStack`, or `ZStack`.
-  The widget associated with the selected tab is displayed below the tabs.
+This widget displays a row of tabs where only one can be selected at a time.
+Each tab is associated with a single widget which is
+typically an `HStack`, `VStack`, or `ZStack`.
+The widget associated with the selected tab is displayed below the tabs.
 
-  The parameters are:
+The parameters are:
 
-  - tabs described by an array-like table containing
-    tables with `label` and `widget` keys
-  - table of options
+- tabs described by an array-like table containing
+  tables with `label` and `widget` keys
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `color`: of the labels; defaults to white
-  - `font`: used for the labels
-  - `onChange`: optional function to be called when a tab is selected;
-     passed the tab index and the table describing the tab
+- `color`: of the labels; defaults to white
+- `font`: used for the labels
+- `onChange`: optional function to be called when a tab is selected;
+   passed the tab index and the table describing the tab
 --]]
 local function Tabs(tabs, options)
   options = options or {}

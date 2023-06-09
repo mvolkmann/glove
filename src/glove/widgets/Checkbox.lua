@@ -79,19 +79,19 @@ local mt = {
 }
 
 --[[
-  This widget ties a checkbox state to a boolean value in a table.
+This widget ties a checkbox state to a boolean value in a table.
 
-  The parameters are:
+The parameters are:
 
-  - text to display after the checkbox
-  - table that holds its state
-  - key within the table that holds its state
+- text to display after the checkbox
+- table that holds its state
+- key within the table that holds its state
 
-  The supported options are:
+The supported options are:
 
-  - `font`: used for the button label
-  - `color`: of the label and checkbox; defaults to white
-  - `onChange`: optional function called when the checkbox is clicked
+- `font`: used for the button label
+- `color`: of the label and checkbox; defaults to white
+- `onChange`: optional function called when the checkbox is clicked
 --]]
 local function Checkbox(label, t, key, options)
   options = options or {}
