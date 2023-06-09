@@ -45,6 +45,8 @@ Many of them display a green outline when the mouse cursor hovers over them.
 
   This widget is a clickable button.
 
+  ![Glove Button](/images/glove-button.png)
+
   The parameters are:
 
   - text to display on the button
