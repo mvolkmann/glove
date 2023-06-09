@@ -144,7 +144,7 @@ The following widgets are currently supported:
 
   - `font`: used for the button label
   - `color`: of the label and checkbox; defaults to white
-  - `onChange`: function called when the checkbox is clicked
+  - `onChange`: optional function called when the checkbox is clicked
 
   For example:
 
@@ -153,7 +153,7 @@ The following widgets are currently supported:
 
   Glove.Checkbox("Hungry?", state, "hungry", {
     onChange = function(t, key, value)
-      print("got change to " .. key, value, t[key])
+      print(key .. " is now " .. tostring(value))
     end
   })
   ```
@@ -415,9 +415,27 @@ The following widgets are currently supported:
 
 - `Toggle`
 
+  This widget ties a toggle state to a boolean value in a table.
+
+  The parameters are:
+
+  - table that holds its state
+  - key within the table that holds its state
+  - table of options
+
+  The supported options are:
+
+  - `color`: of the toggle; defaults to white
+  - `onChange`: optional function called when the checkbox is clicked
+
   For example:
 
   ```lua
+  Glove.Toggle(state, "hungry", {
+    onChange = function(t, key, value)
+      print(key .. " is now " .. tostring(value))
+    end
+  })
   ```
 
 ## Layout Widgets

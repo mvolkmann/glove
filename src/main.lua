@@ -34,7 +34,7 @@ function createUI()
 
   local checkbox = Glove.Checkbox("Hungry?", state, "hungry", {
     onChange = function(t, key, value)
-      print("got change to " .. key, value, t[key])
+      print(key .. " is now " .. tostring(value))
     end
   })
 
@@ -80,7 +80,7 @@ function createUI()
 
   local toggle = Glove.Toggle(state, "hungry", {
     onChange = function(t, key, value)
-      print("got change to " .. key, value, t[key])
+      print(key .. " is now " .. tostring(value))
     end
   })
 

@@ -72,8 +72,8 @@ local mt = {
 
   The parameters are:
 
-  - the text to display on the button
-  - a table of options.
+  - text to display on the button
+  - table of options
 
   The supported options are:
 

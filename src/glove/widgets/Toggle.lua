@@ -48,7 +48,6 @@ local mt = {
         if self.onChange then
           self.onChange(t, key, not checked)
         end
-        print("toggled " .. key)
       end
       return clicked
     end,
@@ -64,10 +63,20 @@ local mt = {
   }
 }
 
--- t[key] is set to true or false.
--- Supported options are:
--- color: defaults to white
--- onChange: function called when button is clicked
+--[[
+  This widget ties a toggle state to a boolean value in a table.
+
+  The parameters are:
+
+  - table that holds its state
+  - key within the table that holds its state
+  - table of options
+
+  The supported options are:
+
+  - `color`: of the toggle; defaults to white
+  - `onChange`: optional function called when the checkbox is clicked
+--]]
 local function Toggle(t, key, options)
   options = options or {}
   assert(type(options) == "table", "Toggle options must be a table.")

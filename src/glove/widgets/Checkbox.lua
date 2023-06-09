@@ -59,7 +59,7 @@ local mt = {
         local key = self.key
         local checked = t[key]
         t[key] = not checked
-        self.onChange(t, key, not checked)
+        if self.onChange then self.onChange(t, key, not checked) end
       end
       return clicked
     end,
@@ -91,7 +91,7 @@ local mt = {
 
   - `font`: used for the button label
   - `color`: of the label and checkbox; defaults to white
-  - `onChange`: function called when the checkbox is clicked
+  - `onChange`: optional function called when the checkbox is clicked
 --]]
 local function Checkbox(label, t, key, options)
   options = options or {}
