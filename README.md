@@ -457,13 +457,28 @@ inside other stack widgets.
 
 ### Spacer
 
-  This adds space inside an `HStack` or `VStack`.
+  This widget adds space inside an `HStack` or `VStack`.
+
+  Adding a `Spacer` at the end of a table of child widgets
+  pushes them to the left.
+
+  Adding a `Spacer` at the beginning of a table of child widgets
+  pushes them to the right.
+
+  Adding a `Spacer` between widgets in a table of child widgets
+  pushes the ones preceding it to the left and
+  pushes the ones following it to the right.
+
+  Any number of `Spacer` widgets can be added to a table of widgets.
+  The amount of space consumed by each is computed by
+  dividing the unused space by the number of `Spacer` widgets.
 
   For example, the following code creates a row of `Text` widgets
   that are vertically centered.
   The space between "One" and "Two" is 20.
   The space between "Two" and "Three" is 20.
   The space between "Three" and "Four" is all the remaining space in the row.
+  The text "Four" is pushed to the right.
 
   ```lua
   Glove.HStack(
