@@ -83,6 +83,7 @@ The supported options are:
 For example:
 
 ![Glove Checkbox unchecked](/images/glove-checkbox-unchecked.png)
+
 ![Glove Checkbox checked](/images/glove-checkbox-checked.png)
 
 ```lua
