@@ -545,6 +545,56 @@ Glove.HStack(
 )
 ```
 
+## Custom Widgets
+
+Functions that implement custom widgets have the following requirements:
+
+1. They must return a table.
+1. The table must define a `draw` method that takes a reference to
+   an instance of the widget, an x coordinate, and a y coordinate.
+   The coordinates indicate the location where
+   its upper-left corner should be drawn.
+1. The table must define a `getHeight` method that takes a reference to
+   an instance of the widget and returns its height.
+1. The table must define a `getWidth` method that takes a reference to
+   an instance of the widget and returns its width.
+
+For example, the following code defines a custom widget that
+draws a rectangle that is filled with a given color and has a given size.
+
+```lua
+local function CustomWidget(color, width, height)
+  color = color or colors.white
+  width = width or 50
+  height = height or 50
+
+  return {
+    draw = function(self, parentX, parentY)
+      local x = parentX + self.x
+      local y = parentY + self.y
+
+      local g = love.graphics
+      g.setColor(color)
+      g.rectangle(
+        "fill",
+        x, y,
+        self:getWidth(), self:getHeight()
+      )
+      g.setColor(colors.white)
+      g.rectangle(
+        "line",
+        x, y,
+        self:getWidth(), self:getHeight()
+      )
+    end,
+
+    getHeight = function(self) return height end,
+
+    getWidth = function(self) return width end
+  }
+end
+```
+
 ## Functional functions
 
 Glove defines the many functional programming functions.

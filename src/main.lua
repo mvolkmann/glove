@@ -6,9 +6,39 @@ local fonts = Glove.fonts
 local state = { firstName = "Mark", hungry = false, lastName = "Volkmann" }
 local vstack
 
+local function CustomWidget(color, width, height)
+  color = color or colors.white
+  width = width or 50
+  height = height or 50
+
+  return {
+    draw = function(self, parentX, parentY)
+      local x = parentX + self.x
+      local y = parentY + self.y
+      local g = love.graphics
+      g.setColor(color)
+      g.rectangle(
+        "fill",
+        x, y,
+        self:getWidth(), self:getHeight()
+      )
+      g.setColor(colors.white)
+      g.rectangle(
+        "line",
+        x, y,
+        self:getWidth(), self:getHeight()
+      )
+    end,
+
+    getHeight = function(self) return height end,
+
+    getWidth = function(self) return width end
+  }
+end
+
 local function createUI()
   vstack = Glove.VStack(
-    { spacing = 20 },
+    { spacing = 10 },
     Glove.Button("Press Me", {
       buttonColor = colors.red,
       font = fonts.default18,
@@ -68,7 +98,8 @@ local function createUI()
       onChange = function(t, key, value)
         print(key .. " is now " .. tostring(value))
       end
-    })
+    }),
+    CustomWidget(colors.yellow, 40, 20)
   )
 end
 
