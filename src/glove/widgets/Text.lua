@@ -57,20 +57,27 @@ local mt = {
   }
 }
 
--- Supported options are:
--- font: font used for button label
--- color: color of label and checkbox; defaults to white
--- compute: function called to compute value
--- onChange: function called when button is clicked
--- key: key name whose value should be displayed
--- table: table containing the key above
--- width: used when key and table are specified
+--[[
+  This widget displays static or computed text.
+
+  The parameters are:
+
+  - the text to display
+  - table of options
+
+  The supported options are:
+
+  - `font`: used for the text
+  - `color`: of the text; defaults to white
+  - `compute`: optional function called to compute the text to display
+  - `width`: used when key and table are specified
+--]]
 local function Text(text, options)
   local to = type(options)
   assert(to == "table" or to == "nil", "Text options must be a table.")
 
   if not text then
-    error("Text requires text")
+    error("Text requires text to display")
   end
 
   local instance = options or {}

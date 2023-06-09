@@ -173,7 +173,7 @@ The following widgets are currently supported:
   For example:
 
   ```lua
-  Glove.FPS({ font = fonts.default12 })
+  Glove.FPS({ font = Glove.fonts.default12 })
   ```
 
 - `Image`
@@ -372,7 +372,7 @@ The following widgets are currently supported:
       }
     },
     {
-      font = fonts.default18,
+      font = Glove.fonts.default18,
       onChange = function(index, tab)
         print("selected tab " .. tab.label .. " at index " .. index)
       end,
@@ -382,9 +382,35 @@ The following widgets are currently supported:
 
 - `Text`
 
+  This widget displays static or computed text.
+
+  The parameters are:
+
+  - the text to display
+  - table of options
+
+  The supported options are:
+
+  - `font`: used for the text
+  - `color`: of the text; defaults to white
+  - `compute`: optional function called to compute the text to display
+  - `width`: used when key and table are specified
+
   For example:
 
   ```lua
+  Glove.Text("Hello, World!", {
+    color: Glove.colors.red,
+    font = Glovel.fonts.default18
+  })
+
+  local state = { firstName = "Mark", lastName = "Volkmann" }
+
+  Glove.Text("", {
+    compute = function()
+      return "Hello, " .. state.firstName .. " " .. state.lastName .. "!"
+    end
+  })
   ```
 
 - `Toggle`
@@ -483,7 +509,7 @@ The following widgets are used to layout the graphical widgets.
     { align = "center", spacing = 20 },
     {
       Glove.Text("One"),
-      Glove.Text("Two", { font = fonts.default18 }),
+      Glove.Text("Two", { font = Glove.fonts.default18 }),
       Glove.Text("Three")
       Glove.Spacer(),
       Glove.Text("Four")
