@@ -447,9 +447,13 @@ Glove.HStack(
 By default `HStack` widgets assume they can use the entire width of the window.
 This works well for top-level instances.
 Nested instances should be given a specific width.
-For example, the following code can be in `main.lua`:
+
+For example:
+
+![Glove Nested HStacks](/images/glove-nested-hstacks.png)
 
 ```lua
+-- in main.lua
 local love = require "love"
 require "glove"
 
@@ -528,9 +532,13 @@ Glove.VStack(
 By default `VStack` widgets assume they can use the entire height of the window.
 This works well for top-level instances.
 Nested instances should be given a specific height.
-For example, the following code can be in `main.lua`:
+
+For example:
+
+![Glove Nested VStacks](/images/glove-nested-vstacks.png)
 
 ```lua
+-- in main.lua
 local love = require "love"
 require "glove"
 

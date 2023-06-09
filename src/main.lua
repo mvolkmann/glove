@@ -4,7 +4,7 @@ require "glove"
 local container
 
 local function createUI()
-  --[[ local spacing = 20
+  local spacing = 20
   local half = (Glove.getAvailableWidth() - spacing) / 2
   container = Glove.HStack(
     { spacing = spacing },
@@ -20,8 +20,8 @@ local function createUI()
       Glove.Spacer(),
       Glove.Text("Four")
     )
-  ) ]]
-  local spacing = 20
+  )
+  --[[ local spacing = 20
   local half = (Glove.getAvailableHeight() - spacing) / 2
   container = Glove.VStack(
     { spacing = spacing },
@@ -39,7 +39,7 @@ local function createUI()
       Glove.Spacer(),
       Glove.Text("Four")
     )
-  )
+  ) ]]
 end
 
 function love.load()
