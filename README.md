@@ -15,17 +15,8 @@ For example code, see `src/main.lua`.
 
 Glove defines the following colors that can be accessed with
 `Glove.color.{color-name}`:
-
-- `black`
-- `blue`
-- `brown`
-- `gray`
-- `green`
-- `orange`
-- `purple`
-- `red`
-- `white`
-- `yellow`
+`black`, `blue`, `brown`, `gray`, `green`, `orange`,
+`purple`, `red`, `white`, and `yellow`.
 
 ## Fonts
 
