@@ -36,71 +36,11 @@ Glove defines the following fonts that can be accessed with
 - `default18`
 - `default30`
 
-## Functional functions
-
-Glove defines the following functional programming functions:
-
-- `Glove.count(t, predicate)`
-
-  Returns the number of items in a given table that match a predicate.
-
-- `Glove.every(t, predicate)`
-
-  Returns a boolean indicating whether
-  every item in a given table matches a predicate.
-
-- `Glove.filter(t, predicate)`
-
-  Returns a new table containing all items in a given table
-  that match a predicate.
-
-- `Glove.find(t, predicate)`
-
-  Returns the first item in a given table that matches a predicate.
-
-- `Glove.map(t, fn)`
-
-  Returns a new table containing the results of passing
-  each item in a given table to a given function.
-
-- `Glove.max(t, fn)`
-
-  Returns the maximum value returned by a function
-  that is passed each item in a given table.
-
-- `Glove.min(t, fn)`
-
-  Returns the minimum value returned by a function
-  that is passed each item in a given table.
-
-- `Glove.reduce(t, fn, initial)`
-
-  Returns a single value computed by accumulating the results
-  of passing each item in a given table to a given function.
-
-- `Glove.some(t, predicate)`
-
-  Returns a boolean indicating whether
-  some item in a given table matches a predicate.
-
-- `Glove.sum(t)`
-
-  Returns the sum of the numbers in a given table.
-  While this can be implemented using "reduce",
-  this is a bit more efficient.
-
-- `Glove.sumFn(t, fn)`
-
-  Returns the sum of the values returned by
-  a function that is passed each item in a given table.
-  While this can be implemented using "reduce",
-  this is a bit more efficient.
-
 ## Graphical Widgets
 
 The following widgets are currently supported:
 
-- `Button`
+### `Button`
 
   This widget is a clickable button.
 
@@ -129,7 +69,7 @@ The following widgets are currently supported:
   })
   ```
 
-- `Checkbox`
+### `Checkbox`
 
   This widget ties a checkbox state to a boolean value in a table.
 
@@ -534,4 +474,64 @@ The following widgets are used to layout the graphical widgets.
     }
   )
   ```
+
+## Functional functions
+
+Glove defines the following functional programming functions:
+
+- `Glove.count(t, predicate)`
+
+  Returns the number of items in a given table that match a predicate.
+
+- `Glove.every(t, predicate)`
+
+  Returns a boolean indicating whether
+  every item in a given table matches a predicate.
+
+- `Glove.filter(t, predicate)`
+
+  Returns a new table containing all items in a given table
+  that match a predicate.
+
+- `Glove.find(t, predicate)`
+
+  Returns the first item in a given table that matches a predicate.
+
+- `Glove.map(t, fn)`
+
+  Returns a new table containing the results of passing
+  each item in a given table to a given function.
+
+- `Glove.max(t, fn)`
+
+  Returns the maximum value returned by a function
+  that is passed each item in a given table.
+
+- `Glove.min(t, fn)`
+
+  Returns the minimum value returned by a function
+  that is passed each item in a given table.
+
+- `Glove.reduce(t, fn, initial)`
+
+  Returns a single value computed by accumulating the results
+  of passing each item in a given table to a given function.
+
+- `Glove.some(t, predicate)`
+
+  Returns a boolean indicating whether
+  some item in a given table matches a predicate.
+
+- `Glove.sum(t)`
+
+  Returns the sum of the numbers in a given table.
+  While this can be implemented using "reduce",
+  this is a bit more efficient.
+
+- `Glove.sumFn(t, fn)`
+
+  Returns the sum of the values returned by
+  a function that is passed each item in a given table.
+  While this can be implemented using "reduce",
+  this is a bit more efficient.
 
