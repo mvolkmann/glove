@@ -1,26 +1,23 @@
 local love = require "love"
 require "glove"
+local colors = Glove.colors
 
 local hstack
 
 local function createUI()
+  local options = { spacing = 10 }
   hstack = Glove.HStack(
-    { id = 1, spacing = 10 },
-
-    --[[ Glove.Text("One"),
-    Glove.Text("Two") ]]
-
-    Glove.HStack(
-      { id = 2, spacing = 10 },
+    options,
+    --[[ Glove.HStack(
+      options,
       Glove.Text("One"),
       Glove.Text("Two")
-    )
-
-  --[[ Glove.HStack(
+    ), ]]
+    Glove.HStack(
       options,
       Glove.Text("Three"),
       Glove.Text("Four")
-    ) ]]
+    )
   )
 end
 

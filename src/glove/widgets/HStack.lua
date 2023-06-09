@@ -4,6 +4,8 @@ local love = require "love"
 local g = love.graphics
 
 local function layout(self)
+  print("HStack.layout: id =", self.id)
+
   local align = self.align or "top"
   local children = self.children
   local spacerWidth = 0

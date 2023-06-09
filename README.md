@@ -663,3 +663,9 @@ The functions provided are:
   While this can be implemented using "reduce",
   this is a bit more efficient.
 
+## Troubleshooting
+
+Most of the widgets take an options object.
+This becomes the object that represents an instance of the widget.
+For this reason you should NOT pass the same options object
+to multiple widget creation functions.
