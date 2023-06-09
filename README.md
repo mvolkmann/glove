@@ -1,4 +1,4 @@
-# Glove
+# Glove.
 
 Glove is a widget library for [LÖVE](https://love2d.org/) (love2d)
 which is a framework for building 2D games in Lua.
@@ -82,7 +82,8 @@ The supported options are:
 
 For example:
 
-![Glove Checkbox](/images/glove-checkbox.png)
+![Glove Checkbox unchecked](/images/glove-checkbox-unchecked.png)
+![Glove Checkbox checked](/images/glove-checkbox-checked.png)
 
 ```lua
 local state = { hungry = false }
