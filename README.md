@@ -38,7 +38,8 @@ Glove defines the following fonts that can be accessed with
 
 ## Graphical Widgets
 
-The following widgets are currently supported:
+Each of the currently supported graphical widgets are described below.
+Many of them display a green outline when the mouse cursor hovers over them.
 
 ### `Button`
 
@@ -132,7 +133,7 @@ The following widgets are currently supported:
   For example:
 
   ```lua
-  Glove.Image("images/love2d-heart.png", { height = 200 })
+  Glove.Image("images/love2d-heart.png", { height = 100 })
   ```
 
 ### `Input`
@@ -340,8 +341,8 @@ The following widgets are currently supported:
 
   ```lua
   Glove.Text("Hello, World!", {
-    color: Glove.colors.red,
-    font = Glovel.fonts.default18
+    color  Glove.colors.red,
+    font = Glove.fonts.default18
   })
 
   local state = { firstName = "Mark", lastName = "Volkmann" }
