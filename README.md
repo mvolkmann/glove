@@ -43,343 +43,361 @@ Many of them display a green outline when the mouse cursor hovers over them.
 
 ### `Button`
 
-  This widget is a clickable button.
+This widget is a clickable button.
 
-  ![Glove Button](/images/glove-button.png)
+The parameters are:
 
-  The parameters are:
+- text to display on the button
+- table of options
 
-  - text to display on the button
-  - table of options
+The supported options are:
 
-  The supported options are:
+- `buttonColor`: background color of the button; defaults to white
+- `font`: font used for the button label
+- `labelColor`: color of the label; defaults to black
+- `onClick`: function called when the button is clicked
 
-  - `buttonColor`: background color of the button; defaults to white
-  - `font`: font used for the button label
-  - `labelColor`: color of the label; defaults to black
-  - `onClick`: function called when the button is clicked
+For example:
 
-  For example:
+![Glove Button](/images/glove-button.png)
 
-  ```lua
-  local button = Glove.Button("Press Me", {
-    buttonColor = Glove.colors.red,
-    font = Glove.fonts.default18,
-    labelColor = Glove.colors.yellow,
-    onClick = function()
-      print("got click")
-    end
-  })
-  ```
+```lua
+local button = Glove.Button("Press Me", {
+  buttonColor = Glove.colors.red,
+  font = Glove.fonts.default18,
+  labelColor = Glove.colors.yellow,
+  onClick = function()
+    print("got click")
+  end
+})
+```
 
 ### `Checkbox`
 
-  This widget ties a checkbox state to a boolean value in a table.
+This widget ties a checkbox state to a boolean value in a table.
 
-  The parameters are:
+The parameters are:
 
-  - text to display after the checkbox
-  - table that holds its state
-  - key within the table that holds its state
-  - table of options
+- text to display after the checkbox
+- table that holds its state
+- key within the table that holds its state
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `font`: used for the button label
-  - `color`: of the label and checkbox; defaults to white
-  - `onChange`: optional function called when the checkbox is clicked
+- `font`: used for the button label
+- `color`: of the label and checkbox; defaults to white
+- `onChange`: optional function called when the checkbox is clicked
 
-  For example:
+For example:
 
-  ```lua
-  local state = { hungry = false }
+![Glove Checkbox](/images/glove-checkbox.png)
 
-  Glove.Checkbox("Hungry?", state, "hungry", {
-    onChange = function(t, key, value)
-      print(key .. " is now " .. tostring(value))
-    end
-  })
-  ```
+```lua
+local state = { hungry = false }
+
+Glove.Checkbox("Hungry?", state, "hungry", {
+  onChange = function(t, key, value)
+    print(key .. " is now " .. tostring(value))
+  end
+})
+```
 
 ### `FPS`
 
-  This widget displays the frames per second currently being achieved
+This widget displays the frames per second currently being achieved
 
-  The parameters are:
+The parameters are:
 
-  - table of options
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `font`: used for the text
+- `font`: used for the text
 
-  For example:
+For example:
 
-  ```lua
-  Glove.FPS({ font = Glove.fonts.default12 })
-  ```
+![Glove FPS](/images/glove-fps.png)
+
+```lua
+Glove.FPS({ font = Glove.fonts.default12 })
+```
 
 - `Image`
 
-  This widget displays an image.
+This widget displays an image.
 
-  The parameters are:
+The parameters are:
 
-  - filePath: path to the image file
-  - table of options
+- filePath: path to the image file
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `height`: of the image (aspect ratio is preserved)
+- `height`: of the image (aspect ratio is preserved)
 
-  For example:
+For example:
 
-  ```lua
-  Glove.Image("images/love2d-heart.png", { height = 100 })
-  ```
+![Glove Image](/images/glove-image.png)
+
+```lua
+Glove.Image("images/love2d-heart.png", { height = 100 })
+```
 
 ### `Input`
 
-  This widget allows the user to enter text.
-  The text automatically scrolls horizontally
-  when it exceeds the specified width.
-  The cursor can be positioned using the left and right arrow keys.
-  The character to the left of the cursor can be deleted
-  by pressing the delete key.
+This widget allows the user to enter text.
+The text automatically scrolls horizontally
+when it exceeds the specified width.
+The cursor can be positioned using the left and right arrow keys.
+The character to the left of the cursor can be deleted
+by pressing the delete key.
 
-  The text is tied to value of a given key in a given table.
+The text is tied to value of a given key in a given table.
 
-  Current the cursor cannot be positioned by clicking
-  and the entered text cannot be selected.
+Current the cursor cannot be positioned by clicking
+and the entered text cannot be selected.
 
-  The parameters are:
+The parameters are:
 
-  - table that holds its state
-  - key within the table that holds its state
-  - table of options
+- table that holds its state
+- key within the table that holds its state
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `color`: of the border and text; defaults to white
-  - `font`: used for the text
-  - `width`: of the widget
+- `color`: of the border and text; defaults to white
+- `font`: used for the text
+- `width`: of the widget
 
-  For example:
+For example:
 
-  ```lua
-  local state = { firstName = "" }
+![Glove Input](/images/glove-input.png)
 
-  Glove.Input(state, "firstName", { width = 100 })
-  ```
+```lua
+local state = { firstName = "" }
+
+Glove.Input(state, "firstName", { width = 100 })
+```
 
 ### `RadioButtons`
 
-  This widget allows the user to select one radiobutton from a set.
+This widget allows the user to select one radiobutton from a set.
 
-  The selected value is tied to value of a given key in a given table.
+The selected value is tied to value of a given key in a given table.
 
-  The parameters are:
+The parameters are:
 
-  - choices described by an array-like table containing
-    tables with `label` and `value` keys
-  - table that holds its state
-  - key within the table that holds its state
-  - table of options
+- choices described by an array-like table containing
+  tables with `label` and `value` keys
+- table that holds its state
+- key within the table that holds its state
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `color`: of the radiobuttons and their labels; defaults to white
-  - `font`: used for the labels
-  - `onChange`: optional function to be called when a choice is selected
-  - `vertical`: boolean indicating whether the radiobuttons
-    should be arranged vertically; defaults to false
+- `color`: of the radiobuttons and their labels; defaults to white
+- `font`: used for the labels
+- `onChange`: optional function to be called when a choice is selected
+- `vertical`: boolean indicating whether the radiobuttons
+  should be arranged vertically; defaults to false
 
-  For example:
+For example:
 
-  ```lua
-  local state = { color = "r" }
+![Glove RadioButtons](/images/glove-radiobuttons.png)
 
-  Glove.RadioButtons(
-    {
-      { label = "Red",   value = "r" },
-      { label = "Green", value = "g" },
-      { label = "Blue",  value = "b" }
-    },
-    state,
-    "color",
-    {
-      onChange = function(t, key, value)
-        print(key .. " is now " .. value)
-      end,
-      vertical = true
-    }
-  )
-  ```
+```lua
+local state = { color = "r" }
+
+Glove.RadioButtons(
+  {
+    { label = "Red",   value = "r" },
+    { label = "Green", value = "g" },
+    { label = "Blue",  value = "b" }
+  },
+  state,
+  "color",
+  {
+    onChange = function(t, key, value)
+      print(key .. " is now " .. value)
+    end,
+    vertical = true
+  }
+)
+```
 
 ### `Select`
 
-  This widget displays a dropdown list of options
-  and allows the user to select one.
+This widget displays a dropdown list of options
+and allows the user to select one.
 
-  The selected value is tied to value of a given key in a given table.
+The selected value is tied to value of a given key in a given table.
 
-  The parameters are:
+![Glove Select](/images/glove-select.png)
 
-  - choices described by an array-like table containing
-    tables with `label` and `value` keys
-  - table that holds its state
-  - key within the table that holds its state
-  - table of options
+The parameters are:
 
-  The supported options are:
+- choices described by an array-like table containing
+  tables with `label` and `value` keys
+- table that holds its state
+- key within the table that holds its state
+- table of options
 
-  - `color`: of the labels; defaults to white
-  - `font`: used for the labels
-  - `onChange`: optional function to be called when a choice is selected
+The supported options are:
 
-  For example:
+- `color`: of the labels; defaults to white
+- `font`: used for the labels
+- `onChange`: optional function to be called when a choice is selected
 
-  ```lua
-  Glove.Select(
-    {
-      { label = "Red",   value = "r" },
-      { label = "Green", value = "g" },
-      { label = "Blue",  value = "b" }
-    },
-    state,
-    "color",
-    {
-      onChange = function(t, key, value)
-        print(key .. " is now " .. value)
-      end
-    }
-  )
-  ```
+For example:
+
+```lua
+Glove.Select(
+  {
+    { label = "Red",   value = "r" },
+    { label = "Green", value = "g" },
+    { label = "Blue",  value = "b" }
+  },
+  state,
+  "color",
+  {
+    onChange = function(t, key, value)
+      print(key .. " is now " .. value)
+    end
+  }
+)
+```
 
 ### `Tabs`
 
-  This widget displays a row of tabs where only one can be selected at a time.
-  Each tab is associated with a single widget which is
-  typically an `HStack`, `VStack`, or `ZStack`.
-  The widget associated with the selected tab is displayed below the tabs.
+This widget displays a row of tabs where only one can be selected at a time.
+Each tab is associated with a single widget which is
+typically an `HStack`, `VStack`, or `ZStack`.
+The widget associated with the selected tab is displayed below the tabs.
 
-  The parameters are:
+![Glove Button](/images/glove-button.png)
 
-  - tabs described by an array-like table containing
-    tables with `label` and `widget` keys
-  - table of options
+The parameters are:
 
-  The supported options are:
+- tabs described by an array-like table containing
+  tables with `label` and `widget` keys
+- table of options
 
-  - `color`: of the labels; defaults to white
-  - `font`: used for the labels
-  - `onChange`: optional function to be called when a tab is selected;
-     passed the tab index and the table describing the tab
+The supported options are:
 
-  For example:
+- `color`: of the labels; defaults to white
+- `font`: used for the labels
+- `onChange`: optional function to be called when a tab is selected;
+   passed the tab index and the table describing the tab
 
-  ```lua
-  Glove.Tabs(
+For example:
+
+```lua
+Glove.Tabs(
+  {
     {
-      {
-        label = "Baseball",
-        widget = Glove.VStack(
-          { spacing = 10 },
-          Glove.Text("There's no crying in baseball!", { font = tabFont }),
-          Glove.HStack(
-            { align = "center", spacing = 10 },
-            Glove.Text("Like baseball?"),
-            Glove.Toggle(state, "likeBaseball")
-          )
+      label = "Baseball",
+      widget = Glove.VStack(
+        { spacing = 10 },
+        Glove.Text("There's no crying in baseball!", { font = tabFont }),
+        Glove.HStack(
+          { align = "center", spacing = 10 },
+          Glove.Text("Like baseball?"),
+          Glove.Toggle(state, "likeBaseball")
         )
-      },
-      {
-        label = "Basketball",
-        widget = Glove.VStack(
-          { spacing = 10 },
-          Glove.Text("Nuggets Rule!"),
-          Glove.HStack(
-            { align = "center", spacing = 10 },
-            Glove.Text("Like basketball?"),
-            Glove.Toggle(state, "likeBasketball")
-          )
-        )
-      },
-      {
-        label = "Football",
-        widget = Glove.Text("Football detail goes here!")
-      },
-      {
-        label = "Hockey",
-        widget = Glove.Text("Hockey detail goes here!")
-      }
+      )
     },
     {
-      font = Glove.fonts.default18,
-      onChange = function(index, tab)
-        print("selected tab " .. tab.label .. " at index " .. index)
-      end,
+      label = "Basketball",
+      widget = Glove.VStack(
+        { spacing = 10 },
+        Glove.Text("Nuggets Rule!"),
+        Glove.HStack(
+          { align = "center", spacing = 10 },
+          Glove.Text("Like basketball?"),
+          Glove.Toggle(state, "likeBasketball")
+        )
+      )
+    },
+    {
+      label = "Football",
+      widget = Glove.Text("Football detail goes here!")
+    },
+    {
+      label = "Hockey",
+      widget = Glove.Text("Hockey detail goes here!")
     }
-  )
-  ```
+  },
+  {
+    font = Glove.fonts.default18,
+    onChange = function(index, tab)
+      print("selected tab " .. tab.label .. " at index " .. index)
+    end,
+  }
+)
+```
 
 ### `Text`
 
-  This widget displays static or computed text.
+This widget displays static or computed text.
 
-  The parameters are:
+The parameters are:
 
-  - the text to display
-  - table of options
+- the text to display
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `font`: used for the text
-  - `color`: of the text; defaults to white
-  - `compute`: optional function called to compute the text to display
-  - `width`: used when key and table are specified
+- `font`: used for the text
+- `color`: of the text; defaults to white
+- `compute`: optional function called to compute the text to display
+- `width`: used when key and table are specified
 
-  For example:
+For example:
 
-  ```lua
-  Glove.Text("Hello, World!", {
-    color  Glove.colors.red,
-    font = Glove.fonts.default18
-  })
+![Glove Text](/images/glove-text.png)
 
-  local state = { firstName = "Mark", lastName = "Volkmann" }
+```lua
+Glove.Text("Hello, World!", {
+  color  Glove.colors.red,
+  font = Glove.fonts.default18
+})
 
-  Glove.Text("", {
-    compute = function()
-      return "Hello, " .. state.firstName .. " " .. state.lastName .. "!"
-    end
-  })
-  ```
+local state = { firstName = "Mark", lastName = "Volkmann" }
+
+Glove.Text("", {
+  compute = function()
+    return "Hello, " .. state.firstName .. " " .. state.lastName .. "!"
+  end
+})
+```
 
 ### `Toggle`
 
-  This widget ties a toggle state to a boolean value in a table.
+This widget ties a toggle state to a boolean value in a table.
 
-  The parameters are:
+The parameters are:
 
-  - table that holds its state
-  - key within the table that holds its state
-  - table of options
+- table that holds its state
+- key within the table that holds its state
+- table of options
 
-  The supported options are:
+The supported options are:
 
-  - `color`: of the toggle; defaults to white
-  - `onChange`: optional function called when the checkbox is clicked
+- `color`: of the toggle; defaults to white
+- `onChange`: optional function called when the checkbox is clicked
 
-  For example:
+For example:
 
-  ```lua
-  Glove.Toggle(state, "hungry", {
-    onChange = function(t, key, value)
-      print(key .. " is now " .. tostring(value))
-    end
-  })
-  ```
+![Glove Toggle](/images/glove-toggle.png)
+
+```lua
+Glove.Toggle(state, "hungry", {
+  onChange = function(t, key, value)
+    print(key .. " is now " .. tostring(value))
+  end
+})
+```
 
 ## Layout Widgets
 
