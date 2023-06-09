@@ -98,7 +98,7 @@ The following widgets are currently supported:
   })
   ```
 
-- `FPS`
+### `FPS`
 
   This widget displays the frames per second currently being achieved
 
@@ -135,7 +135,7 @@ The following widgets are currently supported:
   Glove.Image("images/love2d-heart.png", { height = 200 })
   ```
 
-- `Input`
+### `Input`
 
   This widget allows the user to enter text.
   The text automatically scrolls horizontally
@@ -169,7 +169,7 @@ The following widgets are currently supported:
   Glove.Input(state, "firstName", { width = 100 })
   ```
 
-- `RadioButtons`
+### `RadioButtons`
 
   This widget allows the user to select one radiobutton from a set.
 
@@ -213,7 +213,7 @@ The following widgets are currently supported:
   )
   ```
 
-- `Select`
+### `Select`
 
   This widget displays a dropdown list of options
   and allows the user to select one.
@@ -253,7 +253,7 @@ The following widgets are currently supported:
   )
   ```
 
-- `Tabs`
+### `Tabs`
 
   This widget displays a row of tabs where only one can be selected at a time.
   Each tab is associated with a single widget which is
@@ -320,7 +320,7 @@ The following widgets are currently supported:
   )
   ```
 
-- `Text`
+### `Text`
 
   This widget displays static or computed text.
 
@@ -353,7 +353,7 @@ The following widgets are currently supported:
   })
   ```
 
-- `Toggle`
+### `Toggle`
 
   This widget ties a toggle state to a boolean value in a table.
 
@@ -383,7 +383,7 @@ The following widgets are currently supported:
 Layout is heavily based on ideas from SwiftUI.
 The following widgets are used to layout the graphical widgets.
 
-- `HStack`
+### `HStack`
 
   This arranges widgets horizontally.
 
@@ -406,7 +406,7 @@ The following widgets are used to layout the graphical widgets.
   )
   ```
 
-- `VStack`
+### `VStack`
 
   This arranges widgets vertically.
 
@@ -429,7 +429,7 @@ The following widgets are used to layout the graphical widgets.
   )
   ```
 
-- `ZStack`
+### `ZStack`
 
   This stacks widgets on top of each other.
 
@@ -452,7 +452,7 @@ The following widgets are used to layout the graphical widgets.
       ),
   ```
 
-- Spacer
+### Spacer
 
   This adds space inside an `HStack` or `VStack`.
 
@@ -477,58 +477,63 @@ The following widgets are used to layout the graphical widgets.
 
 ## Functional functions
 
-Glove defines the following functional programming functions:
+Glove defines the many functional programming functions.
+To use them, add the following near the top of a source file:
 
-- `Glove.count(t, predicate)`
+```lua
+local fun = require "glove/fun"
+```
+
+- `fun.count(t, predicate)`
 
   Returns the number of items in a given table that match a predicate.
 
-- `Glove.every(t, predicate)`
+- `fun.every(t, predicate)`
 
   Returns a boolean indicating whether
   every item in a given table matches a predicate.
 
-- `Glove.filter(t, predicate)`
+- `fun.filter(t, predicate)`
 
   Returns a new table containing all items in a given table
   that match a predicate.
 
-- `Glove.find(t, predicate)`
+- `fun.find(t, predicate)`
 
   Returns the first item in a given table that matches a predicate.
 
-- `Glove.map(t, fn)`
+- `fun.map(t, fn)`
 
   Returns a new table containing the results of passing
   each item in a given table to a given function.
 
-- `Glove.max(t, fn)`
+- `fun.max(t, fn)`
 
   Returns the maximum value returned by a function
   that is passed each item in a given table.
 
-- `Glove.min(t, fn)`
+- `fun.min(t, fn)`
 
   Returns the minimum value returned by a function
   that is passed each item in a given table.
 
-- `Glove.reduce(t, fn, initial)`
+- `fun.reduce(t, fn, initial)`
 
   Returns a single value computed by accumulating the results
   of passing each item in a given table to a given function.
 
-- `Glove.some(t, predicate)`
+- `fun.some(t, predicate)`
 
   Returns a boolean indicating whether
   some item in a given table matches a predicate.
 
-- `Glove.sum(t)`
+- `fun.sum(t)`
 
   Returns the sum of the numbers in a given table.
   While this can be implemented using "reduce",
   this is a bit more efficient.
 
-- `Glove.sumFn(t, fn)`
+- `fun.sumFn(t, fn)`
 
   Returns the sum of the values returned by
   a function that is passed each item in a given table.
