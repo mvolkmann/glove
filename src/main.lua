@@ -13,14 +13,18 @@ local function createUI()
     Glove.HStack(
       { id = 2, spacing = 10 },
       Glove.Text("One"),
+      Glove.Spacer(),
       Glove.Text("Two")
-    )
+    ),
 
-  --[[ Glove.HStack(
-      options,
+    -- Glove.Spacer(),
+
+    Glove.HStack(
+      { id = 3, spacing = 10 },
       Glove.Text("Three"),
+      Glove.Spacer(),
       Glove.Text("Four")
-    ) ]]
+    )
   )
 end
 

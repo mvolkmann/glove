@@ -669,3 +669,8 @@ Most of the widgets take an options object.
 This becomes the object that represents an instance of the widget.
 For this reason you should NOT pass the same options object
 to multiple widget creation functions.
+
+The options object can include keys not listed as supported options.
+For example, it can be useful include an `id` key
+that acts as a unique identifier for widget instances.
+This can be output during debugging.
